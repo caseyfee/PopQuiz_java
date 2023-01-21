@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pop Quiz Take 2</title>
+</head>
+
+<body>
+    <div class="timer">
+        <p class="time"></p>
+    </div>
+    <div class="scoreboard-link">
+        <p class="scoreboard">View High Score </p>
+    </div>
+    <div class="container">
+        <p id="welcome-note">
+        <h1>Welcome to the Quiz</h1>
+        Get ready to learn some JAVASCRIPT
+        <br>
+
+        <button class="start button " id="start-button" type="button"> Start Quiz</button>
+        </p>
+        <br>
+        <div id="question-container">
+
+            <div id="question-pocket1" data-state="hidden">
+                <div id="question1">Question1</div>
+                <div id="answer-choices" class="answers"></div>
+                <button class="answer-btn">Answer 1</button>
+                <button class="answer-btn">Answer 2</button>
+                <button class="answer-btn">Answer 3</button>
+                <button class="answer-btn">Answer 4</button>
+            </div>
+
+            <div id="question-pocket2" data-state="hidden">
+                <div id="question2">Question2</div>
+                <div id="answer-choices" class="answers"></div>
+                <button class="answer-btn">Answer 1</button>
+                <button class="answer-btn">Answer 2</button>
+                <button class="answer-btn">Answer 3</button>
+                <button class="answer-btn">Answer 4</button>
+            </div>
+
+            <div id="question-pocket3" data-state="hidden" >
+                <div id="question3">Question3</div>
+                <div id="answer-choices" class="answers"></div>
+                <button class="answer-btn">Answer 1</button>
+                <button class="answer-btn">Answer 2</button>
+                <button class="answer-btn">Answer 3</button>
+                <button class="answer-btn">Answer 4</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="./script2.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    background-color: bisque;
+    border: 3px solid black;
+    justify-content: center;
+    align-items: center;  
+    margin: auto;
+    margin-top: 50px;
+    padding: 50px;
+    width: 50%;
+    max-height: 50%;
+    text-align: center;
+
+}
+
+.question-container{
+    margin:auto;
+    padding: 20px;
+    border: 5px solid red;
+    background-color: blueviolet;
+}
+
+#question-pocket1 {
+    background-color: white;
+    border: 10px solid black;
+}
+
+#question-pocket2 {
+    background-color: white;
+    border: 10px solid blue;
+}
+#question-pocket3 {
+    background-color: white;
+    border: 10px solid green;
+}
+
+.button {
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    
+
+}
+
+.scoreboard-link {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.timer {
+    position: absolute;
+    text-align: right;
+    top: 5px;
+    right: 5px;
+
+}
+
+.hidden {
+    display: none;
+}
+   
