@@ -14,20 +14,28 @@ let startQuiz = document.querySelector("#start-button");
             clearInterval();
         }
     },1000);   
-}
+    }
+    function questionOne()  {
+    var questionFirst = document.querySelector(".greeting");
+        document.getElementById("welcome-note").hidden = true;
+        document.getElementById("question-pocket1").hidden = false;
+    }
+
 
 startQuiz.addEventListener("click", function(){
-    timer()
+    timer();
+    questionOne();
+
 });
 
 
 // STEP TWO!!!
 // When you click the start button, the timer starts and you are presented with a question
 // Unhide questions
-document.getElementById("start-button").addEventListener("click", ()=> {
-    document.getElementById("welcome-note").hidden = true;
-    document.getElementById("question-pocket1").hidden = false;
-})
+// document.getElementById("start-button").addEventListener("click", ()=> {
+    // document.getElementById("welcome-note").hidden = true;
+    // document.getElementById("question-pocket1").hidden = false;
+// })
 
 
 // Create list of questions and assign correct - true and incorrect - false to them  

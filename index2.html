@@ -17,41 +17,42 @@
         <p class="scoreboard">View High Score </p>
     </div>
     <div class="container">
-        <p id="welcome-note">
+        <p class = "greeting" id="welcome-note" hidden="until-found">
         <h1>Welcome to the Quiz</h1>
         Get ready to learn some JAVASCRIPT
         <br>
 
-        <button class="start button " id="start-button" type="button"> Start Quiz</button>
+        <button class="start button " id="start-button" type="button" > Start Quiz</button>
         </p>
         <br>
+
         <div id="question-container">
 
-            <div id="question-pocket1" data-state="hidden">
+            <div id="question-pocket1" hidden>
                 <div id="question1">Question1</div>
                 <div id="answer-choices" class="answers"></div>
-                <button class="answer-btn">Answer 1</button>
-                <button class="answer-btn">Answer 2</button>
-                <button class="answer-btn">Answer 3</button>
-                <button class="answer-btn">Answer 4</button>
+                <button class="answer-btn1" id="answerq1">Answer 1</button>
+                <button class="answer-btn2">Answer 2</button>
+                <button class="answer-btn3">Answer 3</button>
+                <button class="answer-btn4">Answer 4</button>
             </div>
 
-            <div id="question-pocket2" data-state="hidden">
+            <div id="question-pocket2" hidden>
                 <div id="question2">Question2</div>
                 <div id="answer-choices" class="answers"></div>
                 <button class="answer-btn">Answer 1</button>
                 <button class="answer-btn">Answer 2</button>
-                <button class="answer-btn">Answer 3</button>
+                <button class="answer-btn"id="answerq2">Answer 3</button>
                 <button class="answer-btn">Answer 4</button>
             </div>
 
-            <div id="question-pocket3" data-state="hidden" >
+            <div id="question-pocket3" hidden >
                 <div id="question3">Question3</div>
                 <div id="answer-choices" class="answers"></div>
                 <button class="answer-btn">Answer 1</button>
                 <button class="answer-btn">Answer 2</button>
                 <button class="answer-btn">Answer 3</button>
-                <button class="answer-btn">Answer 4</button>
+                <button class="answer-btn" id="answerq3">Answer 4</button>
             </div>
         </div>
     </div>
