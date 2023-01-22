@@ -19,28 +19,28 @@ let startQuiz = document.querySelector("#start-button");
 // When you click the start button, the timer starts and you are presented with a question
 // Unhide question
     function questionOne()  {
-    var questionFirst = document.querySelector(".greeting");
-        document.getElementById("welcome-note").hidden = true;
+    
+        document.getElementById("greeting").add = true;
         document.getElementById("question-pocket1").hidden = false;
     }
 
 
 startQuiz.addEventListener("click", function(){
     timer();
-    questionOne();
+
+    var questionFirst = document.getElementById("greeting");
+    greeting.style.display = "none";
+        questionOne();
 
 });
 
 
 
-
+// STEP THREE!!!
 // Create list of questions and assign correct - true and incorrect - false to them  
-// variables - String match string
-// Once quiz starts - hide button
 
 
-
-
+// STEP FOUR!!!
 // if statement
 // Question should pop up
 // When you answer incorrectly, time is subtracted from the clock
