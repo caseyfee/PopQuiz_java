@@ -40,16 +40,16 @@ h1 {
 }
 
 #question-pocket1 {
-    background-color: white;
+    background-color: var(---questionContainer);
     border: 10px solid black;
 }
 
 #question-pocket2 {
-    background-color: white;
+    background-color: var(---questionContainer);
     border: 10px solid blue;
 }
 #question-pocket3 {
-    background-color: white;
+    background-color: var(---questionContainer);
     border: 10px solid green;
 }
 

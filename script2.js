@@ -1,7 +1,7 @@
 // STEP ONE!!!!
 // Create a button using HTML - Done 
 // Create timer function that starts when button is pressed
-// Create timer counting down from 75 seconds - DONE?
+// Create timer counting down from 75 seconds - DONE - but goes to neg
 let startQuiz = document.querySelector("#start-button");
     var timeEl = document.querySelector(".timer");
     var secondsLeft = 76;
@@ -16,8 +16,8 @@ let startQuiz = document.querySelector("#start-button");
     },1000);   
     }
 // STEP TWO!!!
-// When you click the start button, the timer starts and you are presented with a question
-// Unhide question
+// When you click the start button, the timer starts and you are presented with a question - Done
+// Unhide question - Done
     function questionOne()  {
     
         document.getElementById("greeting").add = true;
@@ -31,19 +31,26 @@ startQuiz.addEventListener("click", function(){
     var questionFirst = document.getElementById("greeting");
     greeting.style.display = "none";
         questionOne();
-
 });
 
 // STEP THREE!!!
 // Create list of questions/answers and assign correct - Done
 // Create Function that moves onto next question 
 // and keeps score if correctly chosen
-const correctAnswer = document.getElementById("answerq1");
+let correctAnswer = document.getElementById("answerq1");
 
 correctAnswer.addEventListener("click", function() {
     console.log("correct");
 
-    var questionTwo = 
+    function questionTwo() {
+        document.getElementById("question-pocket1").hidden = true;
+        document.getElementById("question-pocket2").hidden = false;
+    }
+
+    var hideQuestion1 = document.getElementById("question-pocket1");
+    greeting.style.display = "none";
+        questionTwo();
+    
 })
 
 
