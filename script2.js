@@ -15,6 +15,9 @@ let startQuiz = document.querySelector("#start-button");
         }
     },1000);   
     }
+// STEP TWO!!!
+// When you click the start button, the timer starts and you are presented with a question
+// Unhide question
     function questionOne()  {
     var questionFirst = document.querySelector(".greeting");
         document.getElementById("welcome-note").hidden = true;
@@ -29,13 +32,6 @@ startQuiz.addEventListener("click", function(){
 });
 
 
-// STEP TWO!!!
-// When you click the start button, the timer starts and you are presented with a question
-// Unhide questions
-// document.getElementById("start-button").addEventListener("click", ()=> {
-    // document.getElementById("welcome-note").hidden = true;
-    // document.getElementById("question-pocket1").hidden = false;
-// })
 
 
 // Create list of questions and assign correct - true and incorrect - false to them  
