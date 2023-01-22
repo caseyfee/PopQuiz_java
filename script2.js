@@ -34,10 +34,18 @@ startQuiz.addEventListener("click", function(){
 
 });
 
-
-
 // STEP THREE!!!
-// Create list of questions and assign correct - true and incorrect - false to them  
+// Create list of questions/answers and assign correct - Done
+// Create Function that moves onto next question 
+// and keeps score if correctly chosen
+const correctAnswer = document.getElementById("answerq1");
+
+correctAnswer.addEventListener("click", function() {
+    console.log("correct");
+
+    var questionTwo = 
+})
+
 
 
 // STEP FOUR!!!
