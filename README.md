@@ -2,9 +2,11 @@
 
 ## Description
 
-This website was created from scratch to create a fun quiz individuals can take to showcase my new JavaScript knowledge. It was my best attempt to fulfill all requirements, however after going down a number of different rabbit hole strategies, this is what I have working. 
+The intention of this website was to create a fun quiz individuals can take to learn some new things and so I can practice my JavaScript knowledge, however, I changed strategies completely after 15 hours of work of attempting for and if statements. If you'd like to see my original path, please see script2.js.
 
-To create this quiz, I utilized the following skills:
+The result was my best attempt to fulfill all requirements, however after going down a number of different rabbit hole strategies, this is what I have working. 
+
+To create this quiz, I attempted to utilize the following skills:
 
 - Event listeners;
 - Hearty psuedo-coding;
@@ -30,4 +32,4 @@ Live link: https://caseyfee.github.io/PopQuiz_java
 
 ## Credits
 
-Thanks to BCS, MDN documentation, YouTubers, and my tutor!
+Big thanks to BCS, MDN documentation, YouTubers, and my tutor.

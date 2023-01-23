@@ -1,5 +1,5 @@
 var score = "";
-var secondsLeft = 6;
+var secondsLeft = 76;
 var currentPocket = 0;
 
 // Dom elements
