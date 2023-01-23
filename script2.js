@@ -1,6 +1,8 @@
 
 var score = "";
-var secondsLeft = 3;
+var secondsLeft = 13;
+
+let choiceAlert = document.getElementById("choiceAlert");
 
 // STEP ONE!!!!
 // Create a button using HTML; Create timer function that starts when button is pressed; Create timer counting down from 75 seconds;Exit quiz and go to scoreboard
@@ -44,10 +46,13 @@ startQuiz.addEventListener("click", function () {
 // STEP THREE!!!
 // Create list of questions/answers and assign correct or incorrect; create a function that moves onto the next question;
 // Create Function that keeps score if correctly chosen
-let correctAnswer = document.getElementById("answerq1");
+let correctAnswerOne = document.getElementById("answerq1");
 
-correctAnswer.addEventListener("click", function () {
+correctAnswerOne.addEventListener("click", function () {
     console.log("correct");
+    document.getElementById("choiceAlert").hidden = false;
+    choiceAlert.textContent = "Correct!";
+    choiceAlert.style.display = "none";
 
     // Move onto next question
     function questionTwo() {
@@ -60,15 +65,16 @@ correctAnswer.addEventListener("click", function () {
     questionTwo();
 
 })
+
 // Assign incorrect answers and write function that lets user know it's wrong
 // subtracts 10 seconds from timer if incorrect
 // and moves onto next question
 
-// var incorrectAnswer = document.getElementsByClassName("wrong");
+let incorrectAnswer = document.getElementsByClassName("wrong");
 
-// incorrectAnswer.addEventListener("click", function () {
-    // console.log("wrong");
-    // })
+incorrectAnswer.addEventListener("click", function () {
+    console.log("wrong");
+    })
 
 
 // STEP FIVE!!!!
