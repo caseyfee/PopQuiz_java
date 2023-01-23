@@ -49,6 +49,8 @@ startQuiz.addEventListener("click", function () {
 seenScreenEl = document.getElementById("seenScreen");
 
 function userScreen() {
+    
+    
     var currentQuestion = questionLIst[currentQuestion];
     var questionsEl = document.getElementById("questions");
 
@@ -67,29 +69,20 @@ function userScreen() {
         choicesEl.appendChild(multipleChoicesBtn);
     })
     }
+
+    function choiceCheck() {
+        if (this.value !== questionLIst[currentQuestion].answer)
+            secondsLeft-=10;
+        
+            if(time<=0){
+                // scoreboard();
+            }
+        else {
+            score +=1;
+        }
+    }
     
-    
-
-// function getQuestions() {
-//     var currentQuestion = questions[currentQuestionIndex];
-
-//     var questionsEl = document.getElementById("questions");
-//     questionsEl.textContent = currentQuestion.title;
-
-//     choicesEl.innerHTML = "";
-
-//     currentQuestion.choices.forEach(function(choice, i){
-//         var choiceBtn = document.createElement("button");
-//         choiceBtn.setAttribute("class", "choice");
-//         choiceBtn.setAttribute("value", choice);
-
-//         choiceBtn.textContent = i + 1 + ". " + choice;
-
-//         choiceBtn.onclick = questionClick;
-//         choicesEl.appendChild(choiceBtn);
-//     });
-
-    // }
+   
 
         // userChoice.addEventListener("click", function(e){
         //     console.log(e);
