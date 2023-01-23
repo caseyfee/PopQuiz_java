@@ -1,8 +1,14 @@
+
+var score = "";
+var secondsLeft = 3;
+
 // STEP ONE!!!!
 // Create a button using HTML; Create timer function that starts when button is pressed; Create timer counting down from 75 seconds;Exit quiz and go to scoreboard
 let startQuiz = document.querySelector("#start-button");
 var timeEl = document.querySelector(".timer");
-var secondsLeft = 3;
+
+document.getElementById("greeting").hidden = false;
+
 function timer() {
     let timeInterval = setInterval(function () {
         secondsLeft--;
@@ -20,14 +26,12 @@ function timer() {
     }, 1000);
 }
 // STEP TWO!!!
-// When you click the start button, the timer starts and you are presented with a question - Done
-// Unhide question - Done
+// When you click the start button, the timer starts and you are presented with question 1
 function questionOne() {
 
     document.getElementById("greeting").hidden = true;
     document.getElementById("question-pocket1").hidden = false;
 }
-
 
 startQuiz.addEventListener("click", function () {
     timer();
@@ -38,9 +42,8 @@ startQuiz.addEventListener("click", function () {
 });
 
 // STEP THREE!!!
-// Create list of questions/answers and assign correct
-// Create Function that moves onto next question 
-// and keeps score if correctly chosen
+// Create list of questions/answers and assign correct or incorrect; create a function that moves onto the next question;
+// Create Function that keeps score if correctly chosen
 let correctAnswer = document.getElementById("answerq1");
 
 correctAnswer.addEventListener("click", function () {
@@ -61,16 +64,11 @@ correctAnswer.addEventListener("click", function () {
 // subtracts 10 seconds from timer if incorrect
 // and moves onto next question
 
-var incorrectAnswer = document.getElementsByClassName("wrong");
+// var incorrectAnswer = document.getElementsByClassName("wrong");
 
 // incorrectAnswer.addEventListener("click", function () {
     // console.log("wrong");
     // })
-
-
-// STEP FOUR!!!
-// If clock time === 0 . return out of entire quiz and timer function
-
 
 
 // STEP FIVE!!!!
@@ -80,16 +78,15 @@ var incorrectAnswer = document.getElementsByClassName("wrong");
 // Style scoreboard 
 
 
+
 //STEP SIX!!!
-// ask if you want to restart game
-
-
-
-
-
-
-
-// Function to create and game over image
-
-
-
+// Ask if you want to restart game and start from beginning
+let startOver = document.getElementById("startOver");
+startOver.addEventListener("click", function () {
+    console.log("starting over!");
+    document.getElementById("question-pocket1").hidden = true;
+    document.getElementById("question-pocket2").hidden = true;
+    document.getElementById("scoreboard").hidden = true;
+    document.getElementById("greeting").hidden = false;
+})
+    

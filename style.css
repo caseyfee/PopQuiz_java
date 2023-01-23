@@ -1,9 +1,9 @@
 :root {
     ---background: bisque;
-    ---questionContainer:  rgba(196, 233, 255, 0.735);
+    ---questionContainer:  rgba(196, 233, 255, 0.737);
 
 }
-* {
+body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: var(---background);
 }
@@ -79,4 +79,7 @@ h1 {
 .hidden {
     display: none;
 }
-   
+
+.scoreboard {
+    background-color: var(---questionContainer);
+}
