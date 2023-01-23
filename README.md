@@ -2,7 +2,9 @@
 
 ## Description
 
-This website was created from scratch to create a fun quiz individuals can take to showcase my new JavaScript knowledge. To create this quiz, I utilized the following skills:
+This website was created from scratch to create a fun quiz individuals can take to showcase my new JavaScript knowledge. It was my best attempt to fulfill all requirements, however after going down a number of different rabbit hole strategies, this is what I have working. 
+
+To create this quiz, I utilized the following skills:
 
 - Event listeners;
 - Hearty psuedo-coding;

@@ -1,19 +1,20 @@
 var score = "";
-var secondsLeft = 76;
+var secondsLeft = 6;
 
 // Dom elements
 
-let choiceAlert = document.getElementById("choiceAlert");
-let startQuiz = document.querySelector("#start-button");
-var timeEl = document.querySelector(".timer");
-var questionFirst = document.getElementById("greeting");
-var hideQuestion1 = document.getElementById("question-pocket1");
+const choiceAlert = document.getElementById("choiceAlert");
+const startQuiz = document.querySelector("#start-button");
+const timeEl = document.querySelector(".timer");
+const questionFirst = document.getElementById("greeting");
+const hideQuestion1 = document.getElementById("question-pocket1");
+const pocket = document.querySelectorAll(".pocket");
 
 
 // STEP ONE!!!!
 // Create a button using HTML; Create timer function that starts when button is pressed; Create timer counting down from 75 seconds;Exit quiz and go to scoreboard
 
-document.getElementById("greeting").hidden = false;
+// document.getElementById("greeting").hidden = false;
 
 function timer() {
     let timeInterval = setInterval(function () {
@@ -41,49 +42,46 @@ function questionOne() {
 
 startQuiz.addEventListener("click", function () {
     timer();
-   
-    greeting.style.display = "none";
+    // greeting.style.display = "none";
     questionOne();
 });
 
 // STEP THREE!!!
 // Create list of questions/answers and assign correct or incorrect; create a function that moves onto the next question;
-// Create Function that keeps score if correctly chosen
-                    // let correctAnswerOne = document.getElementById("answerq1");
+// Create Function that keeps score if correctly chosen    
 
-                    // correctAnswerOne.addEventListener("click", function () {
-                    //     console.log("correct");
-                    //     document.getElementById("choiceAlert").hidden = false;
-                    //     choiceAlert.textContent = "Correct!";
-                    //     choiceAlert.style.display = "none";
+let correctAnswerOne = document.getElementById("answerq1");
 
-                    //     // Move onto next question
-                    //     function questionTwo() {
-                    //         document.getElementById("question-pocket1").hidden = true;
-                    //         document.getElementById("question-pocket2").hidden = false;
-                    //     }
+    if (correctAnswerOne.addEventListener("click", function () {
+        console.log("correct");
+        document.getElementById("choiceAlert").hidden = false;
+        choiceAlert.textContent = "Correct!";
+        // choiceAlert.style.display = "none";
 
-                    //     greeting.style.display = "none";
-                    //     questionTwo();
-
-                    // })
-
-for (var i=0; i<pocket.length; i++) {
-    var answerChoices=pocket[i].querySelectorAll(".answer");
-    for(var j=0; j<answerChoices.length; j++) {
-        answerChoices[j].addEventListener("click", funciton(){
-            if(this.id===theAnswer){
-                score++;
-                // Move onto next question
-                    function questionTwo() {
-                    document.getElementById("question-pocket1").hidden = true;
-                    document.getElementById("question-pocket2").hidden = false;
-            })
-
+    }) else {
+        // Move onto next question
+        function questionTwo() {
+            document.getElementById("question-pocket1").hidden = true;
+            document.getElementById("question-pocket2").hidden = false;
         }
-    }
 
+        greeting.style.display = "none";
+        questionTwo();
+    })
 
+// for (var i=0; i<pocket.length; i++) {
+//     var answerChoices=pocket[i].querySelectorAll(".answer");
+//     for(var j=0; j<answerChoices.length; j++) {
+//         answerChoices[j].addEventListener("click", function(){
+//             if (this.id==="theAnswer"){
+//                 score++;
+//                 // and move to next page
+//                 return;
+//             }
+//             return;      
+//         })
+//         } 
+//     }
 
 // Assign incorrect answers and write function that lets user know it's wrong
 // subtracts 10 seconds from timer if incorrect
