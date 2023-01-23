@@ -35,7 +35,17 @@ function timer() {
 }
 // STEP TWO!!!
 // When you click the start button, the timer starts and you are presented with question 1
-?
+            // function questionOne() {
+
+            //     document.getElementById("greeting").hidden = true;
+            //     document.getElementById("question-pocket1").hidden = false;
+            // }
+
+            // startQuiz.addEventListener("click", function () {
+            //     timer();
+            //     // greeting.style.display = "none";
+            //     questionOne();
+            // });
 
 // STEP THREE!!!
 // Create list of questions/answers and assign correct or incorrect; create a function that moves onto the next question;
