@@ -78,22 +78,10 @@ function userScreen() {
                 // scoreboard();
             }
         else {
-            score +=1;
+            score ++;
         }
     }
     
-   
-
-        // userChoice.addEventListener("click", function(e){
-        //     console.log(e);
-        //     score++;
-// }
-
-
-// Answers
-// function answerQuestions(e)
-//     console.log(e);
-
 
 // function scoreboard() {
 //     const userInitials = document.querySelector("#initials")
