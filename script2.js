@@ -1,5 +1,6 @@
 var score = "";
 var secondsLeft = 6;
+var currentPocket = 0;
 
 // Dom elements
 
@@ -34,54 +35,52 @@ function timer() {
 }
 // STEP TWO!!!
 // When you click the start button, the timer starts and you are presented with question 1
-function questionOne() {
-
-    document.getElementById("greeting").hidden = true;
-    document.getElementById("question-pocket1").hidden = false;
-}
-
-startQuiz.addEventListener("click", function () {
-    timer();
-    // greeting.style.display = "none";
-    questionOne();
-});
+?
 
 // STEP THREE!!!
 // Create list of questions/answers and assign correct or incorrect; create a function that moves onto the next question;
 // Create Function that keeps score if correctly chosen    
 
-let correctAnswerOne = document.getElementById("answerq1");
+                // let correctAnswerOne = document.getElementById("answerq1");
 
-    if (correctAnswerOne.addEventListener("click", function () {
-        console.log("correct");
-        document.getElementById("choiceAlert").hidden = false;
-        choiceAlert.textContent = "Correct!";
-        // choiceAlert.style.display = "none";
+                //     if (correctAnswerOne.addEventListener("click", function () {
+                //         console.log("correct");
+                //         document.getElementById("choiceAlert").hidden = false;
+                //         choiceAlert.textContent = "Correct!";
+                //         // choiceAlert.style.display = "none";
 
-    }) else {
-        // Move onto next question
-        function questionTwo() {
-            document.getElementById("question-pocket1").hidden = true;
-            document.getElementById("question-pocket2").hidden = false;
-        }
+                //     }) else {
+                //         // Move onto next question
+                //         function questionTwo() {
+                //             document.getElementById("question-pocket1").hidden = true;
+                //             document.getElementById("question-pocket2").hidden = false;
+                //         }
 
-        greeting.style.display = "none";
-        questionTwo();
-    })
+                //         greeting.style.display = "none";
+                //         questionTwo();
+                //     })
 
-// for (var i=0; i<pocket.length; i++) {
-//     var answerChoices=pocket[i].querySelectorAll(".answer");
-//     for(var j=0; j<answerChoices.length; j++) {
-//         answerChoices[j].addEventListener("click", function(){
-//             if (this.id==="theAnswer"){
-//                 score++;
-//                 // and move to next page
-//                 return;
-//             }
-//             return;      
-//         })
-//         } 
-//     }
+for (var i=0; i<pocket.length; i++) {
+    var answerChoices=pocket[i].querySelectorAll(".answer");
+    for(var j=0; j<answerChoices.length; j++) {
+        answerChoices[j].addEventListener("click", function(){
+            if (this.id==="theAnswer"){
+                score++;
+                // and move to next page
+                return;
+            }
+            pocket[currentPocket].style.display = "none";
+            currentPocket++;
+            pocket[currentPocket].style.hidden = "false";
+            if (currentPocket === 3) {
+                document.getElementById("greeting").hidden = true;
+                document.getElementById("question-pocket1").hidden = true;
+                document.getElementById("question-pocket2").hidden = true;
+                document.getElementById("scoreboard").hidden = false;
+            }
+        })
+        } 
+    }
 
 // Assign incorrect answers and write function that lets user know it's wrong
 // subtracts 10 seconds from timer if incorrect
