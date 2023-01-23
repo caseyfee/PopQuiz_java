@@ -8,8 +8,6 @@ body {
     background-color: var(---background);
 }
 
-
-
 .container {
     background-color: var(---questionContainer);
     border: 3px solid black;

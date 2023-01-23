@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Develop/style.css">
     <title>Pop Quiz Take 2</title>
 </head>
 
@@ -32,7 +32,10 @@
                 </p>
                 <br>
             </div>
-
+            <div class="quiz hidden"> 
+               <h2 class = "questions" id="questions"></h2>
+              <div class = "MultipleChoices" id = "MultipleChoices"></div>
+            </div>
         <!-- <div id="question-container">
 
             <div class= "pocket" id="question-pocket1" hidden>
@@ -68,22 +71,24 @@
                 <div id="choiceAlert" class="choiseMessage" hidden></div>
             </div>
 
-            <div id ="scoreboard" hidden>
-                <h2>Scoreboard</h2>
-                <p >
-                    <h3> Please write initials:
-                    <input type="text" class = "initials">
-                </h3>
-                <button>Submit</button>
-                <button id="startOver">Start Over</button>
-                </p>
-                
-            </div>
+            
         </div> -->
              </div>
         </div>
     </div>
-    <script src="./script3.js"></script>
+
+    <div class = "hidden" id ="scoreboard">
+        <h2>Scoreboard</h2>
+        <p >
+            <h3> Please write initials:
+            <input type="text" class = "initials">
+        </h3>
+        <button id="submit-score" class="submit-score">Submit</button>
+        <button id="startOver">Start Over</button>
+        </p>
+        
+    </div>
+    <script src="Develop/script3.js"></script>
 </body>
 
 </html>

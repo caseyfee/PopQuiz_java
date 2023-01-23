@@ -41,30 +41,60 @@ function timer() {
 
 startQuiz.addEventListener("click", function () {
                 timer();
-                // greeting.style.display = "none";
+                greeting.removeAttribute("hidden");
                 userScreen();
             });
 
 // Start Quiz
 seenScreenEl = document.getElementById("seenScreen");
 
-function userScreen(currentPocket) {
-    // start quiz
-    seenScreenEl.innerHTML = ""
+function userScreen() {
+    var currentQuestion = questionLIst[currentQuestion];
+    var questionsEl = document.getElementById("questions");
 
-    for(var i=0; i<questionLIst.length; i++) {
-        var currentQuestion = questionLIst[currentQuestion].question;
-        var currentMultiChoices = questionLIst[currentQuestion].multipleChoices;
-        seenScreenEl.textContent = currentQuestion;
-        seenScreenEl.textContent = currentMultiChoices;
+    questionsEl.textContent = currentQuestion.question;
+    
+    seenScreenEl.innerHTML = "";
 
+    currentQuestion.question.forEach(function (multipleChoices,i) {
+        var multipleChoicesBtn = document.createElement("button");
+        multipleChoicesBtn.setAttribute("class", "choice");
+        multipleChoicesBtn.setAttribute("value", multipleChoices);
 
+        // multipleChoicesBtn.textContent = i +1+ "."+multipleChoices;
+
+        multipleChoicesBtn.onclick=choiceCheck;
+        choicesEl.appendChild(multipleChoicesBtn);
+    })
     }
+    
+    
+
+// function getQuestions() {
+//     var currentQuestion = questions[currentQuestionIndex];
+
+//     var questionsEl = document.getElementById("questions");
+//     questionsEl.textContent = currentQuestion.title;
+
+//     choicesEl.innerHTML = "";
+
+//     currentQuestion.choices.forEach(function(choice, i){
+//         var choiceBtn = document.createElement("button");
+//         choiceBtn.setAttribute("class", "choice");
+//         choiceBtn.setAttribute("value", choice);
+
+//         choiceBtn.textContent = i + 1 + ". " + choice;
+
+//         choiceBtn.onclick = questionClick;
+//         choicesEl.appendChild(choiceBtn);
+//     });
+
+    // }
 
         // userChoice.addEventListener("click", function(e){
         //     console.log(e);
         //     score++;
-}
+// }
 
 
 // Answers
@@ -73,9 +103,23 @@ function userScreen(currentPocket) {
 
 
 // function scoreboard() {
-//     document.getElementById("greeting").hidden = true;
-//             document.getElementById("question-pocket1").hidden = true;
-//             document.getElementById("question-pocket2").hidden = true;
-//             document.getElementById("scoreboard").hidden = false;
+//     const userInitials = document.querySelector("#initials")
+//             var score = localStorage.getItem("score");
+//             var initials = initials
+//             localStorage.get("initials");
+//             localStorage.setItem("score", score);
+//             localStorage.setItem("initials", initials);
+// }
+// function checkForEnter(event) {
+//     if(event.key === "Enter") {
+//         saveHighscore();
+//     }}
+
+    
+//     initialsEL.onkeyup = checkForEnter;
+    // document.getElementById("greeting").hidden = true;
+    //     document.getElementById("question-pocket1").hidden = true;
+    //     document.getElementById("question-pocket2").hidden = true;
+    //     document.getElementById("scoreboard").hidden = false;
             
 // }

@@ -112,13 +112,7 @@ function timer() {
 // Create input for initials
 // Style scoreboard 
 
-const userInitials = document.querySelector("#initials")
 
-
-var score = localStorage.getItem("score");
-var initials = localStorage.get("initials");
-localStorage.setItem("score", score);
-localStorage.setItem("initials", initials);
 
 
 //STEP SIX!!!
