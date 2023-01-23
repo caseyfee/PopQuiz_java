@@ -4,15 +4,22 @@
 // Create timer counting down from 75 seconds - DONE - but goes to neg
 let startQuiz = document.querySelector("#start-button");
 var timeEl = document.querySelector(".timer");
-var secondsLeft = 76;
+var secondsLeft = 6;
 function timer() {
     let timeInterval = setInterval(function () {
         secondsLeft--;
         timeEl.textContent = "Time Left: " + secondsLeft + " seconds";
         if (secondsLeft === 0) {
             // Stops execution of action at set interval
-            clearInterval();
+            
         }
+
+        else if (secondsLeft <0) {
+            console.log("game over");
+            clearInterval(timeInterval);
+            return;
+        }
+
     }, 1000);
 }
 // STEP TWO!!!
@@ -57,13 +64,11 @@ correctAnswer.addEventListener("click", function () {
 // subtracts 10 seconds from timer if incorrect
 // and moves onto next question
 
-let incorrectAnswer = document.getElementsByClassName("answers");
+var incorrectAnswer = document.getElementsByClassName("wrong");
+
 incorrectAnswer.addEventListener("click", function () {
-    for (var i=0; i<wrong.length; i++ ) {
-    incorrectAnswer[i].innerHTML = "incorrect";
     console.log("wrong");
-    }
-})
+    })
 
 
 // STEP FOUR!!!
@@ -87,10 +92,6 @@ incorrectAnswer.addEventListener("click", function () {
 
 
 // Function to create and game over image
-function sendMessage() {
-    timeEl.textContent = " ";
-    var imgEl = document.createElement("img");
-    imgEl.setAttribute("src", "images/image_1.jpg");
-    mainEl.appendChild(imgEl);
 
-}
+
+
