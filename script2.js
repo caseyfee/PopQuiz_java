@@ -10,6 +10,7 @@ let startQuiz = document.querySelector("#start-button");
 var timeEl = document.querySelector(".timer");
 
 document.getElementById("greeting").hidden = false;
+document.get
 
 function timer() {
     let timeInterval = setInterval(function () {
@@ -74,6 +75,7 @@ let incorrectAnswer = document.getElementsByClassName("wrong");
 
 incorrectAnswer.addEventListener("click", function () {
     console.log("wrong");
+    secondsLeft = secondsLeft - 10;
     })
 
 
