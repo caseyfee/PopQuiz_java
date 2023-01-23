@@ -1,16 +1,19 @@
-
 var score = "";
-var secondsLeft = 13;
+var secondsLeft = 76;
+
+// Dom elements
 
 let choiceAlert = document.getElementById("choiceAlert");
+let startQuiz = document.querySelector("#start-button");
+var timeEl = document.querySelector(".timer");
+var questionFirst = document.getElementById("greeting");
+var hideQuestion1 = document.getElementById("question-pocket1");
+
 
 // STEP ONE!!!!
 // Create a button using HTML; Create timer function that starts when button is pressed; Create timer counting down from 75 seconds;Exit quiz and go to scoreboard
-let startQuiz = document.querySelector("#start-button");
-var timeEl = document.querySelector(".timer");
 
 document.getElementById("greeting").hidden = false;
-document.get
 
 function timer() {
     let timeInterval = setInterval(function () {
@@ -38,8 +41,7 @@ function questionOne() {
 
 startQuiz.addEventListener("click", function () {
     timer();
-
-    var questionFirst = document.getElementById("greeting");
+   
     greeting.style.display = "none";
     questionOne();
 });
@@ -47,36 +49,52 @@ startQuiz.addEventListener("click", function () {
 // STEP THREE!!!
 // Create list of questions/answers and assign correct or incorrect; create a function that moves onto the next question;
 // Create Function that keeps score if correctly chosen
-let correctAnswerOne = document.getElementById("answerq1");
+                    // let correctAnswerOne = document.getElementById("answerq1");
 
-correctAnswerOne.addEventListener("click", function () {
-    console.log("correct");
-    document.getElementById("choiceAlert").hidden = false;
-    choiceAlert.textContent = "Correct!";
-    choiceAlert.style.display = "none";
+                    // correctAnswerOne.addEventListener("click", function () {
+                    //     console.log("correct");
+                    //     document.getElementById("choiceAlert").hidden = false;
+                    //     choiceAlert.textContent = "Correct!";
+                    //     choiceAlert.style.display = "none";
 
-    // Move onto next question
-    function questionTwo() {
-        document.getElementById("question-pocket1").hidden = true;
-        document.getElementById("question-pocket2").hidden = false;
+                    //     // Move onto next question
+                    //     function questionTwo() {
+                    //         document.getElementById("question-pocket1").hidden = true;
+                    //         document.getElementById("question-pocket2").hidden = false;
+                    //     }
+
+                    //     greeting.style.display = "none";
+                    //     questionTwo();
+
+                    // })
+
+for (var i=0; i<pocket.length; i++) {
+    var answerChoices=pocket[i].querySelectorAll(".answer");
+    for(var j=0; j<answerChoices.length; j++) {
+        answerChoices[j].addEventListener("click", funciton(){
+            if(this.id===theAnswer){
+                score++;
+                // Move onto next question
+                    function questionTwo() {
+                    document.getElementById("question-pocket1").hidden = true;
+                    document.getElementById("question-pocket2").hidden = false;
+            })
+
+        }
     }
 
-    var hideQuestion1 = document.getElementById("question-pocket1");
-    greeting.style.display = "none";
-    questionTwo();
 
-})
 
 // Assign incorrect answers and write function that lets user know it's wrong
 // subtracts 10 seconds from timer if incorrect
 // and moves onto next question
 
-let incorrectAnswer = document.getElementsByClassName("wrong");
+// let incorrectAnswer = document.getElementsByClassName("wrong");
 
-incorrectAnswer.addEventListener("click", function () {
-    console.log("wrong");
-    secondsLeft = secondsLeft - 10;
-    })
+// incorrectAnswer.addEventListener("click", function () {
+//     console.log("wrong");
+//     secondsLeft = secondsLeft - 10;
+//     })
 
 
 // STEP FIVE!!!!
