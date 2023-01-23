@@ -1,5 +1,5 @@
 var score = "";
-var secondsLeft = 76;
+var secondsLeft = 36;
 var currentPocket = 0;
 
 // Dom elements
@@ -70,27 +70,29 @@ function timer() {
                 //         questionTwo();
                 //     })
 
-for (var i=0; i<pocket.length; i++) {
-    var answerChoices=pocket[i].querySelectorAll(".answer");
-    for(var j=0; j<answerChoices.length; j++) {
-        answerChoices[j].addEventListener("click", function(){
-            if (this.id==="theAnswer"){
-                score++;
-                // and move to next page
-                return;
-            }
-            pocket[currentPocket].style.display = "none";
-            currentPocket++;
-            pocket[currentPocket].style.hidden = "false";
-            if (currentPocket === 3) {
-                document.getElementById("greeting").hidden = true;
-                document.getElementById("question-pocket1").hidden = true;
-                document.getElementById("question-pocket2").hidden = true;
-                document.getElementById("scoreboard").hidden = false;
-            }
-        })
-        } 
-    }
+    for (var i=0; i<pocket.length; i++) {
+        var answerChoices=pocket[i].querySelectorAll(".answer");
+        for(var j=0; j<answerChoices.length; j++) {
+            answerChoices[j].addEventListener("click", function(){
+                if (this.id==="theAnswer"){
+                    score++;
+                    // and move to next page
+                    // return;
+                    pocket[currentPocket].style.display = "none";
+                    currentPocket++;
+                    pocket[currentPocket].style.hidden = "false";
+                        if (currentPocket === 3) {
+                            document.getElementById("greeting").hidden = true;
+                            document.getElementById("question-pocket1").hidden = true;
+                            document.getElementById("question-pocket2").hidden = true;
+                            document.getElementById("scoreboard").hidden = false;
+                    }
+                }
+                
+                
+            })
+            } 
+        }
 
 // Assign incorrect answers and write function that lets user know it's wrong
 // subtracts 10 seconds from timer if incorrect
@@ -110,6 +112,13 @@ for (var i=0; i<pocket.length; i++) {
 // Create input for initials
 // Style scoreboard 
 
+const userInitials = document.querySelector("#initials")
+
+
+var score = localStorage.getItem("score");
+var initials = localStorage.get("initials");
+localStorage.setItem("score", score);
+localStorage.setItem("initials", initials);
 
 
 //STEP SIX!!!
@@ -122,4 +131,6 @@ startOver.addEventListener("click", function () {
     document.getElementById("scoreboard").hidden = true;
     document.getElementById("greeting").hidden = false;
 })
+
+
     
