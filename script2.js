@@ -1,25 +1,22 @@
 // STEP ONE!!!!
-// Create a button using HTML - Done 
-// Create timer function that starts when button is pressed
-// Create timer counting down from 75 seconds - DONE - but goes to neg
+// Create a button using HTML; Create timer function that starts when button is pressed; Create timer counting down from 75 seconds;Exit quiz and go to scoreboard
 let startQuiz = document.querySelector("#start-button");
 var timeEl = document.querySelector(".timer");
-var secondsLeft = 6;
+var secondsLeft = 3;
 function timer() {
     let timeInterval = setInterval(function () {
         secondsLeft--;
         timeEl.textContent = "Time Left: " + secondsLeft + " seconds";
         if (secondsLeft === 0) {
             // Stops execution of action at set interval
-            
-        }
-
-        else if (secondsLeft <0) {
             console.log("game over");
             clearInterval(timeInterval);
-            return;
+            document.getElementById("greeting").hidden = true;
+            document.getElementById("question-pocket1").hidden = true;
+            document.getElementById("question-pocket2").hidden = true;
+            document.getElementById("scoreboard").hidden = false;
         }
-
+       
     }, 1000);
 }
 // STEP TWO!!!
@@ -27,7 +24,7 @@ function timer() {
 // Unhide question - Done
 function questionOne() {
 
-    document.getElementById("greeting").add = true;
+    document.getElementById("greeting").hidden = true;
     document.getElementById("question-pocket1").hidden = false;
 }
 
@@ -66,13 +63,14 @@ correctAnswer.addEventListener("click", function () {
 
 var incorrectAnswer = document.getElementsByClassName("wrong");
 
-incorrectAnswer.addEventListener("click", function () {
-    console.log("wrong");
-    })
+// incorrectAnswer.addEventListener("click", function () {
+    // console.log("wrong");
+    // })
 
 
 // STEP FOUR!!!
 // If clock time === 0 . return out of entire quiz and timer function
+
 
 
 // STEP FIVE!!!!
