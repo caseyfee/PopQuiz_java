@@ -25,7 +25,7 @@ A screenshot is included below of the site. The site images are saved locally an
 A GitHub link is here: https://github.com/caseyfee/PopQuiz_java.git
 
 
-Live link: https://caseyfee.github.io/PopQuiz_java
+Live link: https://caseyfee.github.io/PopQuiz_java/
 
 ![Webpage Screenshot](assets/images/quiz.png)
 
