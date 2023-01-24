@@ -1,7 +1,7 @@
 var score = "";
-var secondsLeft = 6;
+var secondsLeft = 16;
 var currentPocket = 0;
-const currentQuestionIndex = 0;
+var currentQuestionIndex = 0;
 var questionLIst = [
     // Question 1
 
@@ -27,6 +27,8 @@ var timeEl = document.querySelector(".timer");
 var userChoice = document.querySelectorAll("answer");
 var quizEL = document.getElementById("quiz");
 var mulipleChoices = document.getElementById("multipleChoices");
+
+document.getElementById("scoreboard").hidden = true;
 
 // Start Button
 function timer() {
@@ -56,7 +58,7 @@ function userScreen() {
     var currentQuestion = questionLIst[currentQuestionIndex];
   
     var questionsEl = document.getElementById("questionSpot");
-    // seenScreenEl.innerHTML = "";
+    document.getElementById("greeting").hidden = true;
     // document.getElementById("quiz").hidden = false;
     questionsEl.textContent = currentQuestion.question;  
     console.log(currentQuestion.question);
@@ -84,15 +86,20 @@ function userScreen() {
             }
         else {
             score ++;
-            
+            currentQuestionIndex++;
+            userScreen();
         }
     }
     
 
 function scoreboard() {
-    const userInitials = document.querySelector("#initials")
-    // var showScorebard = document.getElementsById("scoreboard");
     document.getElementById("scoreboard").hidden = false;
+    document.getElementById("greeting").hidden = true;
+    document.getElementById("quiz").hidden = true;
+    
+
+    var userInitials = document.querySelector("#initials")
+    // var showScorebard = document.getElementsById("scoreboard");
 
     }
 // function highScore(event) {
