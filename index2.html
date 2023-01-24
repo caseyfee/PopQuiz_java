@@ -17,26 +17,26 @@
         <p class="scoreboard">View High Score </p>
     </div>
     <div class="container">
-        <div id = "seenScreen">
-            <div id = "greeting" >
-                <p  id="welcome-note" >
+        <div id="seenScreen">
+            <div id="greeting">
+                <p id="welcome-note">
                 <h1>Welcome to the Quiz</h1>
                 Get ready to learn some stuff
-                If you choose the correct answer, the next question will show up. 
+                If you choose the correct answer, the next question will show up.
                 If you answer incorrectly, you will get a 10 second penalty!
                 Good luck!
                 <br>
                 <br>
                 <br>
-                <button class="start button " id="start-button" type="button" > Start Quiz</button>
+                <button class="start button " id="start-button" type="button"> Start Quiz</button>
                 </p>
                 <br>
             </div>
-            <div class="quiz hidden"> 
-               <h2 class = "questions" id="questions"></h2>
-              <div class = "MultipleChoices" id = "MultipleChoices"></div>
+            <div class="quiz hidden">
+                <h2 class="questionSpots" id="questionSpot"></h2>
+                <div class="multipleChoices" id="multipleChoices"></div>
             </div>
-        <!-- <div id="question-container">
+            <!-- <div id="question-container">
 
             <div class= "pocket" id="question-pocket1" hidden>
                 <div id="question1">Question1</div>
@@ -73,21 +73,30 @@
 
             
         </div> -->
-             </div>
+            <div class="scoreboard-container">
+                <div class="hidden scoreboard-container" id="scoreboard">
+                    <h2>Scoreboard</h2>
+                    <p>
+                    <h3> Please write initials:
+                        <input type="text" class="initials">
+                    </h3>
+                    <button id="submit-score" class="submit-score">Submit</button>
+                    <button id="startOver">Start Over</button>
+                    </p>
+
+                </div>
+            </div>
         </div>
+        <!-- <div class="Highscore hidden">
+                <h1>Highscores!</h1> 
+                <ol id="highscores"></ol>
+                <button id="clearScore"> Clear Highscore </button>
+            </div> -->
+    </div>
     </div>
 
-    <div class = "hidden" id ="scoreboard">
-        <h2>Scoreboard</h2>
-        <p >
-            <h3> Please write initials:
-            <input type="text" class = "initials">
-        </h3>
-        <button id="submit-score" class="submit-score">Submit</button>
-        <button id="startOver">Start Over</button>
-        </p>
-        
-    </div>
+
+
     <script src="Develop/script3.js"></script>
 </body>
 

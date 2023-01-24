@@ -1,6 +1,7 @@
 var score = "";
-var secondsLeft = 16;
+var secondsLeft = 202;
 var currentPocket = 0;
+const currentQuestionIndex = 0;
 var questionLIst = [
     // Question 1
 
@@ -21,9 +22,11 @@ var questionLIst = [
 ]
 
 // Dom elements
-const startQuiz = document.querySelector("#start-button");
-const timeEl = document.querySelector(".timer");
-const userChoice = document.querySelectorAll("answer");
+var startQuiz = document.querySelector("#start-button");
+var timeEl = document.querySelector(".timer");
+var userChoice = document.querySelectorAll("answer");
+var quizEL = document.getElementById("quiz");
+var mulipleChoices = document.getElementById("multipleChoices");
 
 // Start Button
 function timer() {
@@ -34,39 +37,39 @@ function timer() {
             // Stops execution of action at set interval
             console.log("game over");
             clearInterval(timeInterval);
-            // scoreboard(); 
+            scoreboard(); 
         }
     }, 1000);
-}
+} 
 
-startQuiz.addEventListener("click", function () {
+    startQuiz.addEventListener("click", function () {
                 timer();
-                greeting.removeAttribute("hidden");
+                document.getElementById("greeting").style.visibility='hidden';
                 userScreen();
             });
-
+        // }
 // Start Quiz
 seenScreenEl = document.getElementById("seenScreen");
 
 function userScreen() {
     
-    
-    var currentQuestion = questionLIst[currentQuestion];
-    var questionsEl = document.getElementById("questions");
-
-    questionsEl.textContent = currentQuestion.question;
-    
+    var currentQuestion = questionLIst[currentQuestionIndex];
+  
+    var questionsEl = document.getElementById("questionSpot");
     seenScreenEl.innerHTML = "";
+    questionsEl.textContent = currentQuestion.question;  
+    console.log(currentQuestion.question);
+    console.log(currentQuestion.multipleChoices);
 
-    currentQuestion.question.forEach(function (multipleChoices,i) {
+    currentQuestion.multipleChoices.forEach(function (multipleChoices,i) {
         var multipleChoicesBtn = document.createElement("button");
-        multipleChoicesBtn.setAttribute("class", "choice");
+        multipleChoicesBtn.setAttribute("class", "mulipleChoices");
         multipleChoicesBtn.setAttribute("value", multipleChoices);
 
-        // multipleChoicesBtn.textContent = i +1+ "."+multipleChoices;
+        multipleChoicesBtn.textContent = i +1+ ". "+multipleChoices;
 
         multipleChoicesBtn.onclick=choiceCheck;
-        choicesEl.appendChild(multipleChoicesBtn);
+        mulipleChoices.appendChild(multipleChoicesBtn);
     })
     }
 
@@ -83,14 +86,32 @@ function userScreen() {
     }
     
 
-// function scoreboard() {
-//     const userInitials = document.querySelector("#initials")
-//             var score = localStorage.getItem("score");
-//             var initials = initials
-//             localStorage.get("initials");
-//             localStorage.setItem("score", score);
-//             localStorage.setItem("initials", initials);
-// }
+function scoreboard() {
+    const userInitials = document.querySelector("#initials")
+    var showScorebard = document.getElementsByClassName[0]("scoreboard");
+    showScorebard.classList.remove("hidden");
+
+    }
+// function highScore(event) {
+//     var initials = initialsEl.value.trim();
+//         if(initials !=="") {
+//             var highScores =
+//             JSON.parse(window.localStorage.getItem("highscores")) || [];
+//             var newScore = {
+//                 score: time,
+//                 initials : initials
+//             };
+//         }
+// }      
+//             // Saves information to localStorage
+//                 highscores.push(newScore);
+//                 window.localStorage.setItem("highscores", JSON.stringify(highscores));
+//                 // Takes user into highscore page
+//                 window.location.href = "/score.html";
+            
+
+
+
 // function checkForEnter(event) {
 //     if(event.key === "Enter") {
 //         saveHighscore();
@@ -99,7 +120,7 @@ function userScreen() {
     
 //     initialsEL.onkeyup = checkForEnter;
     // document.getElementById("greeting").hidden = true;
-    //     document.getElementById("question-pocket1").hidden = true;
+    //     document.getElementById("questions-pocket1").hidden = true;
     //     document.getElementById("question-pocket2").hidden = true;
     //     document.getElementById("scoreboard").hidden = false;
             
