@@ -1,6 +1,5 @@
 var score = "";
-var secondsLeft = 16;
-var currentPocket = 0;
+var secondsLeft = 26;
 var currentQuestionIndex = 0;
 var questionLIst = [
     // Question 1
@@ -19,6 +18,14 @@ var questionLIst = [
         answer: '70,000'
     },
 
+     // Question 3
+
+     {
+        question: 'What percent of bees are female in a hive?',
+        multipleChoices: ['50%', '1%', '75%', '90%'],
+        answer: '90%'
+    },
+
 ]
 
 // Dom elements
@@ -26,13 +33,14 @@ var startQuiz = document.querySelector("#start-button");
 var timeEl = document.querySelector(".timer");
 var userChoice = document.querySelectorAll("answer");
 var quizEL = document.getElementById("quiz");
-var mulipleChoices = document.getElementById("multipleChoices");
+var multipleChoicesEl = document.getElementById("multipleChoices");
+var startOver = document.getElementById("startOver");
 
 document.getElementById("scoreboard").hidden = true;
 
 // Start Button
 function timer() {
-    let timeInterval = setInterval(function () {
+    var timeInterval = setInterval(function () {
         secondsLeft--;
         timeEl.textContent = "Time Left: " + secondsLeft + " seconds";
         if (secondsLeft === 0) {
@@ -49,47 +57,59 @@ function timer() {
                 document.getElementById("greeting").style.visibility='hidden';
                 userScreen();
             });
-        // }
+        
 // Start Quiz
-// seenScreenEl = document.getElementById("seenScreen");
-
 function userScreen() {
     
     var currentQuestion = questionLIst[currentQuestionIndex];
   
     var questionsEl = document.getElementById("questionSpot");
     document.getElementById("greeting").hidden = true;
-    // document.getElementById("quiz").hidden = false;
-    questionsEl.textContent = currentQuestion.question;  
-    console.log(currentQuestion.question);
-    console.log(currentQuestion.multipleChoices);
 
-    currentQuestion.multipleChoices.forEach(function (multipleChoices,i) {
-        var multipleChoicesBtn = document.createElement("button");
-        multipleChoicesBtn.setAttribute("class", "mulipleChoices");
-        multipleChoicesBtn.setAttribute("value", multipleChoices);
-
-        multipleChoicesBtn.textContent = i +1+ ". "+multipleChoices;
-
-        multipleChoicesBtn.onclick=choiceCheck;
-        mulipleChoices.appendChild(multipleChoicesBtn);
-    })
-    }
-
-    function choiceCheck() {
-        if (this.value !== questionLIst[currentQuestionIndex].answer)
-            secondsLeft-=5;
+    if(currentQuestionIndex===questionLIst.length) {
+        secondsLeft ===0;
+        scoreboard();
         
-            if(secondsLeft<=0){
-                secondsLeft === 0;
-                scoreboard();
-            }
-        else {
-            score ++;
-            currentQuestionIndex++;
-            userScreen();
-        }
     }
+    else {
+        questionsEl.textContent = currentQuestion.question;  
+        console.log(currentQuestion.question);
+        console.log(currentQuestion.multipleChoices);
+    
+        multipleChoicesEl.innerHTML = "";
+    
+        currentQuestion.multipleChoices.forEach(function (multipleChoicesEl,i) {
+            var multipleChoicesBtn = document.createElement("button");
+            multipleChoicesBtn.setAttribute("class", "mulipleChoices");
+            multipleChoicesBtn.setAttribute("value", multipleChoicesEl);
+    
+            multipleChoicesBtn.textContent = multipleChoicesEl;
+    
+            multipleChoicesBtn.onclick=choiceCheck;
+            multipleChoices.appendChild(multipleChoicesBtn);
+    })    
+    }
+    // If answer last question, quiz is also over
+        
+}  
+    function choiceCheck() {
+        if (secondsLeft<=0){
+            secondsLeft === 0;
+            scoreboard();
+        }
+            if (this.value !== questionLIst[currentQuestionIndex].answer) {
+                secondsLeft-=5;
+                userScreen();
+            }
+            else {
+                score ++;
+                currentQuestionIndex++;
+                userScreen();
+            }
+        
+        }       
+        
+    
     
 
 function scoreboard() {
@@ -97,8 +117,12 @@ function scoreboard() {
     document.getElementById("greeting").hidden = true;
     document.getElementById("quiz").hidden = true;
     
+    startOver.addEventListener("click", function () {
+        document.location.reload();
+    })
 
-    var userInitials = document.querySelector("#initials")
+    // var userInitials = document.querySelector("#initials")
+
     // var showScorebard = document.getElementsById("scoreboard");
 
     }
