@@ -25,7 +25,13 @@ var questionLIst = [
         multipleChoices: ['50%', '1%', '75%', '90%'],
         answer: '90%'
     },
+    // Question 4
 
+    {
+        question: 'What is a bees favorite sport?',
+        multipleChoices: ['soccer', 'football', 'rug-bee', 'swimming'],
+        answer: 'rug-bee'
+    },
 ]
 
 // Dom elements
@@ -35,6 +41,9 @@ var userChoice = document.querySelectorAll("answer");
 var quizEL = document.getElementById("quiz");
 var multipleChoicesEl = document.getElementById("multipleChoices");
 var startOver = document.getElementById("startOver");
+var scoreEl = document.getElementById("totalScore");
+var submitScore = document.getElementById("submit-score");
+var feedback = document.getElementById("answerFeedback");
 
 document.getElementById("scoreboard").hidden = true;
 
@@ -89,7 +98,7 @@ function userScreen() {
             multipleChoices.appendChild(multipleChoicesBtn);
     })    
     }
-    // If answer last question, quiz is also over
+    
         
 }  
     function choiceCheck() {
@@ -98,8 +107,11 @@ function userScreen() {
             scoreboard();
         }
             if (this.value !== questionLIst[currentQuestionIndex].answer) {
+                feedback.textContent = "Wrong - Correct answer is: " + questionLIst[currentQuestionIndex].answer;
+                currentQuestionIndex++;
                 secondsLeft-=5;
                 userScreen();
+                
             }
             else {
                 score ++;
@@ -108,22 +120,24 @@ function userScreen() {
             }
         
         }       
-        
-    
-    
+
 
 function scoreboard() {
     document.getElementById("scoreboard").hidden = false;
     document.getElementById("greeting").hidden = true;
     document.getElementById("quiz").hidden = true;
     
+    scoreEl.textContent = "Score: " + score;
+
+    submitScore.addEventListener("click", function() {
+        highScore();
+    })
+
     startOver.addEventListener("click", function () {
         document.location.reload();
     })
 
-    // var userInitials = document.querySelector("#initials")
-
-    // var showScorebard = document.getElementsById("scoreboard");
+    var userInitials = document.querySelector("#initials")  
 
     }
 // function highScore(event) {
@@ -143,19 +157,9 @@ function scoreboard() {
 //                 // Takes user into highscore page
 //                 window.location.href = "/score.html";
             
-
-
-
 // function checkForEnter(event) {
 //     if(event.key === "Enter") {
 //         saveHighscore();
 //     }}
 
     
-//     initialsEL.onkeyup = checkForEnter;
-    // document.getElementById("greeting").hidden = true;
-    //     document.getElementById("questions-pocket1").hidden = true;
-    //     document.getElementById("question-pocket2").hidden = true;
-    //     document.getElementById("scoreboard").hidden = false;
-            
-// }
