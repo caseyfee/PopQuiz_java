@@ -1,5 +1,5 @@
 var score = "";
-var secondsLeft = 202;
+var secondsLeft = 6;
 var currentPocket = 0;
 const currentQuestionIndex = 0;
 var questionLIst = [
@@ -49,14 +49,15 @@ function timer() {
             });
         // }
 // Start Quiz
-seenScreenEl = document.getElementById("seenScreen");
+// seenScreenEl = document.getElementById("seenScreen");
 
 function userScreen() {
     
     var currentQuestion = questionLIst[currentQuestionIndex];
   
     var questionsEl = document.getElementById("questionSpot");
-    seenScreenEl.innerHTML = "";
+    // seenScreenEl.innerHTML = "";
+    // document.getElementById("quiz").hidden = false;
     questionsEl.textContent = currentQuestion.question;  
     console.log(currentQuestion.question);
     console.log(currentQuestion.multipleChoices);
@@ -74,22 +75,24 @@ function userScreen() {
     }
 
     function choiceCheck() {
-        if (this.value !== questionLIst[currentQuestion].answer)
-            secondsLeft-=10;
+        if (this.value !== questionLIst[currentQuestionIndex].answer)
+            secondsLeft-=5;
         
-            if(time<=0){
-                // scoreboard();
+            if(secondsLeft<=0){
+                secondsLeft === 0;
+                scoreboard();
             }
         else {
             score ++;
+            
         }
     }
     
 
 function scoreboard() {
     const userInitials = document.querySelector("#initials")
-    var showScorebard = document.getElementsByClassName[0]("scoreboard");
-    showScorebard.classList.remove("hidden");
+    // var showScorebard = document.getElementsById("scoreboard");
+    document.getElementById("scoreboard").hidden = false;
 
     }
 // function highScore(event) {

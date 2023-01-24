@@ -27,7 +27,7 @@ A GitHub link is here: https://github.com/caseyfee/PopQuiz_java.git
 
 Live link: https://caseyfee.github.io/PopQuiz_java
 
-![Webpage Screenshot](./Develop/images/quiz.png)
+![Webpage Screenshot](assets/images/quiz.png)
 
 
 ## Credits
