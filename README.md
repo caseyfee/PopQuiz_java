@@ -2,9 +2,7 @@
 
 ## Description
 
-The intention of this website was to create a fun quiz individuals can take to learn some new things and so I can practice my JavaScript knowledge, however, I changed strategies completely after 15 hours of work of attempting for and if statements. If you'd like to see my original path, please see script2.js.
-
-The result was my best attempt to fulfill all requirements, however after going down a number of different rabbit hole strategies, this is what I have working. 
+The intention of this website was to create a fun quiz individuals can take to learn some new things and so I can practice my JavaScript knowledge. Hope you learn a thing or two about our friendly neighbors - the bees.
 
 To create this quiz, I attempted to utilize the following skills:
 
@@ -32,4 +30,4 @@ Live link: https://caseyfee.github.io/PopQuiz_java/
 
 ## Credits
 
-Big thanks to BCS, MDN documentation, YouTubers, and my tutor.
+Big thanks to BCS, MDN documentation, YouTubers, and of course- my tutor.
