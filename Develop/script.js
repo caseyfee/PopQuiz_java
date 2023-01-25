@@ -65,6 +65,7 @@ function timer() {
     }, 1000);
 }
 
+// Start Quiz
 startQuiz.addEventListener("click", function () {
     timer();
     greetingEl.classList.add("hide");
@@ -72,7 +73,7 @@ startQuiz.addEventListener("click", function () {
     userScreen();
 });
 
-// Start Quiz
+// Rotating Questions
 function userScreen() {
 
     var currentQuestion = questionLIst[currentQuestionIndex];
@@ -104,6 +105,8 @@ function userScreen() {
         })
     }
 }
+
+// Checking User's Answers
 function choiceCheck(event) {
     if (secondsLeft <= 0) {
         secondsLeft === 0;
@@ -123,6 +126,7 @@ function choiceCheck(event) {
     }
 }
 
+// Scoreboard at end
 function scoreboard() {
     scoreboardEl.classList.remove("hide");
     greetingEl.classList.add("hide");
@@ -142,20 +146,21 @@ function scoreboard() {
 
 var initialsEl = document.querySelector("#initials");
 
+// Highscore board
 function viewHighScore() {
     highScoreEl.classList.remove("hide");
     var highScores =
         JSON.parse(window.localStorage.getItem("highscores")) || [];
     var highScoreHTML = "";
-    for (var i=0; i< highScores.length; i++) {
-        var {score,initials} = highScores[i];
+    for (var i = 0; i < highScores.length; i++) {
+        var { score, initials } = highScores[i];
         highScoreHTML += `<li> ${initials}: ${score}</li>`
     }
-    if (highScoreHTML==="") {
-        highScoreHTML="<h3> No Scores Yet! </h3>";
+    if (highScoreHTML === "") {
+        highScoreHTML = "<h3> No Scores Yet! </h3>";
     }
 
-    highScoreList.innerHTML= highScoreHTML;
+    highScoreList.innerHTML = highScoreHTML;
 }
 
 function addHighScore() {
@@ -173,7 +178,7 @@ function addHighScore() {
     viewHighScore();
 }
 
-function clearScores(){
+function clearScores() {
     window.localStorage.setItem("highscores", JSON.stringify([]))
     viewHighScore();
 }

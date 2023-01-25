@@ -1,8 +1,9 @@
 :root {
     ---background: bisque;
-    ---questionContainer:  rgba(196, 233, 255, 0.737);
+    ---questionContainer: rgba(196, 233, 255, 0.737);
 
 }
+
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-image: url("../assets/images/bees.jpeg");
@@ -15,7 +16,7 @@ body {
     background-color: var(---questionContainer);
     border: 3px solid black;
     justify-content: center;
-    align-items: center;  
+    align-items: center;
     margin: auto;
     margin-top: 50px;
     padding: 50px;
@@ -25,14 +26,14 @@ body {
     border-radius: 35px;
 }
 
-.question-container{
+.question-container {
     background-color: var(---questionContainer);
-    margin:auto;
+    margin: auto;
     padding: 20px;
     border: 5px solid red;
 }
 
-#greeting{ 
+#greeting {
     background-color: var(---questionContainer);
 }
 
@@ -49,6 +50,7 @@ h1 {
     background-color: var(---questionContainer);
     border: 10px solid blue;
 }
+
 #question-pocket3 {
     background-color: var(---questionContainer);
     border: 10px solid green;
@@ -59,13 +61,6 @@ h1 {
     display: flex;
     align-items: center;
     margin: auto;
-}
-
-.scoreboard-link {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    background-color: var(---background);
 }
 
 .timer {
@@ -82,7 +77,7 @@ h1 {
 
 .scoreboard {
     background-color: var(---questionContainer);
-    
+
 }
 
 #scoreboard-container {
