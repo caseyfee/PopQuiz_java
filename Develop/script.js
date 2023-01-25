@@ -1,4 +1,4 @@
-var score = "";
+var score = 0;
 var secondsLeft = 26;
 var currentQuestionIndex = 0;
 var questionLIst = [
@@ -18,9 +18,9 @@ var questionLIst = [
         answer: '70,000'
     },
 
-     // Question 3
+    // Question 3
 
-     {
+    {
         question: 'What percent of bees are female in a hive?',
         multipleChoices: ['50%', '1%', '75%', '90%'],
         answer: '90%'
@@ -44,8 +44,12 @@ var startOver = document.getElementById("startOver");
 var scoreEl = document.getElementById("totalScore");
 var submitScore = document.getElementById("submit-score");
 var feedback = document.getElementById("answerFeedback");
+var highScoreEl = document.getElementById("highScore");
+var greetingEl = document.getElementById("greeting");
+var scoreboardEl = document.getElementById("scoreboard")
+var highScoreList = document.getElementById("highScoreList");
 
-document.getElementById("scoreboard").hidden = true;
+
 
 // Start Button
 function timer() {
@@ -56,110 +60,126 @@ function timer() {
             // Stops execution of action at set interval
             console.log("game over");
             clearInterval(timeInterval);
-            scoreboard(); 
+            scoreboard();
         }
     }, 1000);
-} 
+}
 
-    startQuiz.addEventListener("click", function () {
-                timer();
-                document.getElementById("greeting").style.visibility='hidden';
-                userScreen();
-            });
-        
+startQuiz.addEventListener("click", function () {
+    timer();
+    greetingEl.classList.add("hide");
+    quizEL.classList.remove("hide");
+    userScreen();
+});
+
 // Start Quiz
 function userScreen() {
-    
-    var currentQuestion = questionLIst[currentQuestionIndex];
-  
-    var questionsEl = document.getElementById("questionSpot");
-    document.getElementById("greeting").hidden = true;
 
-    if(currentQuestionIndex===questionLIst.length) {
-        secondsLeft ===0;
+    var currentQuestion = questionLIst[currentQuestionIndex];
+
+    var questionsEl = document.getElementById("questionSpot");
+    greetingEl.classList.add("hide");
+
+    if (currentQuestionIndex === questionLIst.length) {
+        secondsLeft === 0;
         scoreboard();
-        
+
     }
     else {
-        questionsEl.textContent = currentQuestion.question;  
+        questionsEl.textContent = currentQuestion.question;
         console.log(currentQuestion.question);
         console.log(currentQuestion.multipleChoices);
-    
+
         multipleChoicesEl.innerHTML = "";
-    
-        currentQuestion.multipleChoices.forEach(function (multipleChoicesEl,i) {
+
+        currentQuestion.multipleChoices.forEach(function (multipleChoicesEl, i) {
             var multipleChoicesBtn = document.createElement("button");
             multipleChoicesBtn.setAttribute("class", "mulipleChoices");
             multipleChoicesBtn.setAttribute("value", multipleChoicesEl);
-    
-            multipleChoicesBtn.textContent = multipleChoicesEl;
-    
-            multipleChoicesBtn.onclick=choiceCheck;
-            multipleChoices.appendChild(multipleChoicesBtn);
-    })    
-    }
-    
-        
-}  
-    function choiceCheck() {
-        if (secondsLeft<=0){
-            secondsLeft === 0;
-            scoreboard();
-        }
-            if (this.value !== questionLIst[currentQuestionIndex].answer) {
-                feedback.textContent = "Wrong - Correct answer is: " + questionLIst[currentQuestionIndex].answer;
-                currentQuestionIndex++;
-                secondsLeft-=5;
-                userScreen();
-                
-            }
-            else {
-                score ++;
-                currentQuestionIndex++;
-                userScreen();
-            }
-        
-        }       
 
+            multipleChoicesBtn.textContent = multipleChoicesEl;
+
+            multipleChoicesBtn.onclick = choiceCheck;
+            multipleChoices.appendChild(multipleChoicesBtn);
+        })
+    }
+}
+function choiceCheck(event) {
+    if (secondsLeft <= 0) {
+        secondsLeft === 0;
+        scoreboard();
+    }
+    if (this.value !== questionLIst[currentQuestionIndex].answer) {
+        feedback.textContent = "Wrong - Correct answer is: " + questionLIst[currentQuestionIndex].answer;
+        currentQuestionIndex++;
+        secondsLeft -= 5;
+        userScreen();
+
+    }
+    else {
+        score++;
+        currentQuestionIndex++;
+        userScreen();
+    }
+}
 
 function scoreboard() {
-    document.getElementById("scoreboard").hidden = false;
-    document.getElementById("greeting").hidden = true;
-    document.getElementById("quiz").hidden = true;
-    
-    scoreEl.textContent = "Score: " + score;
+    scoreboardEl.classList.remove("hide");
+    greetingEl.classList.add("hide");
+    quizEL.classList.add("hide");
+    viewHighScore();
 
-    submitScore.addEventListener("click", function() {
-        highScore();
+    scoreEl.textContent = "Score: " + score + " out of 4.";
+
+    submitScore.addEventListener("click", function () {
+        addHighScore();
     })
 
     startOver.addEventListener("click", function () {
         document.location.reload();
     })
+}
 
-    var userInitials = document.querySelector("#initials")  
+var initialsEl = document.querySelector("#initials");
 
+function viewHighScore() {
+    highScoreEl.classList.remove("hide");
+    var highScores =
+        JSON.parse(window.localStorage.getItem("highscores")) || [];
+    var highScoreHTML = "";
+    for (var i=0; i< highScores.length; i++) {
+        var {score,initials} = highScores[i];
+        highScoreHTML += `<li> ${initials}: ${score}</li>`
     }
-// function highScore(event) {
-//     var initials = initialsEl.value.trim();
-//         if(initials !=="") {
-//             var highScores =
-//             JSON.parse(window.localStorage.getItem("highscores")) || [];
-//             var newScore = {
-//                 score: time,
-//                 initials : initials
-//             };
-//         }
-// }      
-//             // Saves information to localStorage
-//                 highscores.push(newScore);
-//                 window.localStorage.setItem("highscores", JSON.stringify(highscores));
-//                 // Takes user into highscore page
-//                 window.location.href = "/score.html";
-            
-// function checkForEnter(event) {
-//     if(event.key === "Enter") {
-//         saveHighscore();
-//     }}
+    if (highScoreHTML==="") {
+        highScoreHTML="<h3> No Scores Yet! </h3>";
+    }
 
-    
+    highScoreList.innerHTML= highScoreHTML;
+}
+
+function addHighScore() {
+    var highScores =
+        JSON.parse(window.localStorage.getItem("highscores")) || [];
+    var initials = initialsEl.value.trim();
+    if (initials !== "") {
+        var newScore = {
+            score, initials
+        };
+        // Saves information to localStorage
+        highScores.push(newScore);
+        window.localStorage.setItem("highscores", JSON.stringify(highScores))
+    }
+    viewHighScore();
+}
+
+function clearScores(){
+    window.localStorage.setItem("highscores", JSON.stringify([]))
+    viewHighScore();
+}
+
+
+
+
+
+

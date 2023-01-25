@@ -32,7 +32,7 @@
                 </p>
                 <br>
             </div>
-            <div class="quiz" id="quiz">
+            <div class="quiz hide" id="quiz">
                 <h2 class="questionSpots" id="questionSpot"></h2>
                 <div class="multipleChoices" id="multipleChoices"></div>
                 <div id="answerFeedback"> </div>
@@ -75,11 +75,11 @@
             
         </div> -->
             <div class="scoreboard-container">
-                <div class="scoreboard" id="scoreboard">
+                <div class="scoreboard hide" id="scoreboard">
                     <h2>Scoreboard</h2>
                     <p>
                     <h3> Please write initials:
-                        <input type="text" class="initials">
+                        <input type="text" id="initials">
                     </h3>
                     <p id="totalScore"></p>
                     <button id="submit-score" class="submit-score">Submit</button>
@@ -88,18 +88,16 @@
                 </div>
             </div>
 
+              <div class = "hide" id="highScore">
+                <h1>Highscores!</h1> 
+                <ol id="highScoreList"></ol>
+                <button id="clearScore" onclick="clearScores()"> Clear Highscore </button>
+            </div>
+
         </div>
     </div>
     </div>
-    <!-- <div class="Highscore hidden">
-                <h1>Highscores!</h1> 
-                <ol id="highscores"></ol>
-                <button id="clearScore"> Clear Highscore </button>
-            </div> -->
-
-
-
-
+  
     <script src="Develop/script.js"></script>
 </body>
 

@@ -66,7 +66,6 @@ h1 {
     top: 5px;
     left: 5px;
     background-color: var(---background);
-    
 }
 
 .timer {
@@ -74,10 +73,10 @@ h1 {
     text-align: right;
     top: 5px;
     right: 5px;
-
+    background-color: var(---background);
 }
 
-.hidden {
+.hide {
     display: none;
 }
 
